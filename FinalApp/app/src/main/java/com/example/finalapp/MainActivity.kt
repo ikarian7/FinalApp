@@ -3,6 +3,7 @@ package com.example.finalapp
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -32,6 +33,22 @@ class MainActivity : AppCompatActivity() {
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.getItemId()
+
+        if (id == R.id.action_one) {
+            Toast.makeText(this, "Add character", Toast.LENGTH_LONG).show()
+            return true
+        }
+        if (id == R.id.action_two) {
+            Toast.makeText(this, "Select character", Toast.LENGTH_LONG).show()
+            return true
+        }
+        if (id == R.id.action_three) {
+            Toast.makeText(this, "Delete character", Toast.LENGTH_LONG).show()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
 
     }
 }
