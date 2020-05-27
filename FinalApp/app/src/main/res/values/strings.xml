@@ -4,4 +4,9 @@
     <string name="title_info">Info</string>
     <string name="title_combat">Combat</string>
     <string name="title_story">Story</string>
+    <string name="dia_dismiss">Cancel</string>
+    <string name="dia_add">Add</string>
+    <string name="Cartel">Cartel</string>
+    <string name="profession">Profession</string>
+    <string name="quirk">Quirk</string>
 </resources>
