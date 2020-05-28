@@ -1,13 +1,13 @@
-package com.example.finalapp.ui.dashboard
+package com.example.finalapp.ui.combat
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class CombatViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is combat Fragment"
     }
     val text: LiveData<String> = _text
 }

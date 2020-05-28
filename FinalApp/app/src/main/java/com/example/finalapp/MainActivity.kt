@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.getItemId()
 

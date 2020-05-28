@@ -6,7 +6,110 @@
     <string name="title_story">Story</string>
     <string name="dia_dismiss">Cancel</string>
     <string name="dia_add">Add</string>
-    <string name="Cartel">Cartel</string>
-    <string name="profession">Profession</string>
-    <string name="quirk">Quirk</string>
+    <string name="Cartel">Cartel:</string>
+    <string name="profession">Profession:</string>
+    <string name="quirk">Quirk:</string>
+    <string-array name="Cartelnames">
+        <item>The Cirlce</item>
+        <item>The Family</item>
+        <item>The Forgotten</item>
+        <item>The Gravediggers</item>
+        <item>The Mummers</item>
+        <item>Red Lotus Society</item>
+        <item>The Vespers</item>
+        <item>Wardens of the night</item>
+        <item>The Church</item>
+        <item>The Hanged</item>
+        <item>Independent</item>
+    </string-array>
+    <string-array name="Professionnames">
+        <item>Alchemist</item>
+        <item>Assassin</item>
+        <item>Basher</item>
+        <item>Boss</item>
+        <item>Brawler</item>
+        <item>Cleaner</item>
+        <item>Dabbler</item>
+        <item>Fixer</item>
+        <item>Grifter</item>
+        <item>Mastermind</item>
+        <item>Mole</item>
+        <item>Poisoner</item>
+        <item>Runner</item>
+        <item>Sharpshooter</item>
+        <item>Thief</item>
+        <item>Trainer</item>
+        <item>Beguiler</item>
+        <item>Dragon</item>
+        <item>Fortune teller</item>
+        <item>Hexer</item>
+        <item>Magus</item>
+        <item>Masquerader</item>
+        <item>Pallbearer</item>
+        <item>Wyr</item>
+        <item>Specter</item>
+        <item>Traveler</item>
+    </string-array>
+    <string-array name="Quirknames">
+        <item>A Home in Little Taona</item>
+        <item>Animal Whisperer</item>
+        <item>Artisan</item>
+        <item>Aura Reader</item>
+        <item>Card Sharp</item>
+        <item>Chosen of the Black Council</item>
+        <item>Chromaturgy</item>
+        <item>Disgraced Watch Officer</item>
+        <item>Diviner’s Ear</item>
+        <item>Dizzying Intellect</item>
+        <item>Dockworker</item>
+        <item>Elderlander</item>
+        <item>Escaped Final Vows</item>
+        <item>Everyman</item>
+        <item>Ex-Blooded</item>
+        <item>Ex-Con</item>
+        <item>Eye for Art</item>
+        <item>Failed Apprentice</item>
+        <item>Family Ties</item>
+        <item>Fascination with the Occult</item>
+        <item>Former Soldier</item>
+        <item>Fresh-Faced</item>
+        <item>Friendly Rival</item>
+        <item>Gossip Monger</item>
+        <item>Indebted</item>
+        <item>Iron Guts</item>
+        <item>Labor Camp Refugee</item>
+        <item>Legacy</item>
+        <item>Loan Shark</item>
+        <item>Looking to Get Out</item>
+        <item>Lucky Charm</item>
+        <item>Master Artist</item>
+        <item>Master Chef</item>
+        <item>Master Musician</item>
+        <item>Memories of a Past Life</item>
+        <item>Mentor</item>
+        <item>Object Reader</item>
+        <item>Old Flame</item>
+        <item>Orphaned Scion</item>
+        <item>Pet</item>
+        <item>Physicker</item>
+        <item>Privateer</item>
+        <item>Reader</item>
+        <item>Scribe-Perfect Memory</item>
+        <item>Shifted Allegiances</item>
+        <item>Sibling in the crew</item>
+        <item>Signature Weapon</item>
+        <item>Slum Lord</item>
+        <item>Society School Training</item>
+        <item>Stage Magician</item>
+        <item>Street Hustler</item>
+        <item>Stunning</item>
+        <item>Taonan</item>
+        <item>Tinker</item>
+        <item>Trading Company Job</item>
+        <item>Twins</item>
+        <item>Unnatural Healing</item>
+        <item>Vladich</item>
+        <item>Watcher in the Dark</item>
+        <item>Wraith Survivor</item>
+    </string-array>
 </resources>
