@@ -12,7 +12,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import kotlinx.android.synthetic.main.add_char_dialogue.*
 import kotlinx.android.synthetic.main.add_char_dialogue.view.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,6 +50,15 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Add Character")
             //show dialog
             val  mAlertDialog = mBuilder.show()
+
+            mDialogView.dialogAddBtn.setOnClickListener{
+
+               TVcarteltext.text = cartelspinner.selectedItem.toString()
+                TVprofessiontext.text = professionspinner.selectedItem.toString()
+                TVquirktext.text = quirkspinner.selectedItem.toString()
+
+
+            }
             mDialogView.dialogCancelBtn.setOnClickListener {
                 //dismiss dialog
                 mAlertDialog.dismiss()

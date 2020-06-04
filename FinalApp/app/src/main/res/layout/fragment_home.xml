@@ -33,14 +33,15 @@
                     android:layout_width="61dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Cartel" />
+                    android:text="@string/Cartel"
+                    android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/TVcarteltext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
-                    android:text="TextView" />
+                    android:textColor="#000000" />
 
             </LinearLayout>
 
@@ -55,14 +56,15 @@
                     android:layout_width="61dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/profession" />
+                    android:text="@string/profession"
+                    android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/TVprofessiontext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
-                    android:text="TextView" />
+                    android:textColor="#000000" />
             </LinearLayout>
 
             <LinearLayout
@@ -76,14 +78,15 @@
                     android:layout_width="61dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/quirk" />
+                    android:text="@string/quirk"
+                    android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/TVquirktext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
-                    android:text="TextView" />
+                    android:textColor="#000000" />
             </LinearLayout>
 
         </LinearLayout>

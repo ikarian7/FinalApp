@@ -22,9 +22,9 @@ class CombatFragment : Fragment() {
         combatViewModel =
                 ViewModelProviders.of(this).get(CombatViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_combat, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
+        //val textView: TextView = root.findViewById(R.id.text_notifications)
         combatViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+          //  textView.text = it
         })
         return root
     }
