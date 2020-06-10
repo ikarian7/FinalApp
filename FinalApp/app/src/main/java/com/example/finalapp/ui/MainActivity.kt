@@ -1,4 +1,4 @@
-package com.example.finalapp
+package com.example.finalapp.ui
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -12,12 +12,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.finalapp.R
 import kotlinx.android.synthetic.main.add_char_dialogue.*
 import kotlinx.android.synthetic.main.add_char_dialogue.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,7 +27,11 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_character, R.id.navigation_info, R.id.navigation_combat, R.id.navigation_story))
+            R.id.navigation_character,
+            R.id.navigation_info,
+            R.id.navigation_combat,
+            R.id.navigation_story
+        ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         navView.itemIconTintList = null
@@ -43,26 +47,7 @@ class MainActivity : AppCompatActivity() {
         val id = item.getItemId()
 
         if (id == R.id.action_one) {
-            val mDialogView = LayoutInflater.from(this).inflate(R.layout.add_char_dialogue, null)
-            //AlertDialogBuilder
-            val mBuilder = AlertDialog.Builder(this)
-                .setView(mDialogView)
-                .setTitle("Add Character")
-            //show dialog
-            val  mAlertDialog = mBuilder.show()
-
-            mDialogView.dialogAddBtn.setOnClickListener{
-
-               TVcarteltext.text = cartelspinner.selectedItem.toString()
-                TVprofessiontext.text = professionspinner.selectedItem.toString()
-                TVquirktext.text = quirkspinner.selectedItem.toString()
-
-
-            }
-            mDialogView.dialogCancelBtn.setOnClickListener {
-                //dismiss dialog
-                mAlertDialog.dismiss()
-            }
+            showAlert()
             return true
         }
         if (id == R.id.action_two) {
@@ -76,5 +61,28 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
 
+    }
+
+    private fun showAlert(){
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.add_char_dialogue, null)
+        //AlertDialogBuilder
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+            .setTitle("Add Character")
+        //show dialog
+        val  mAlertDialog = mBuilder.show()
+
+        mDialogView.dialogAddBtn.setOnClickListener{
+
+            TVcarteltext.text = cartelspinner.selectedItem.toString()
+            TVprofessiontext.text = professionspinner.selectedItem.toString()
+            TVquirktext.text = quirkspinner.selectedItem.toString()
+
+
+        }
+        mDialogView.dialogCancelBtn.setOnClickListener {
+            //dismiss dialog
+            mAlertDialog.dismiss()
+        }
     }
 }

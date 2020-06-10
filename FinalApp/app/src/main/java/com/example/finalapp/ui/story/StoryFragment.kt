@@ -4,28 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.finalapp.R
+import com.example.finalapp.ui.ActivityViewModel
 
 class StoryFragment : Fragment() {
-
-    private lateinit var storyViewModel: StoryViewModel
+    private lateinit var storyViewModel: ActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        storyViewModel =
-            ViewModelProviders.of(this).get(StoryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_combat, container, false)
-        //val textView: TextView = root.findViewById(R.id.text_notifications)
-        storyViewModel.text.observe(viewLifecycleOwner, Observer {
-           // textView.text = it
-        })
-        return root
+        storyViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
+        return inflater.inflate(R.layout.fragment_combat, container, false)
     }
 }
