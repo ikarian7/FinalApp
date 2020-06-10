@@ -18,6 +18,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         homeViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_combat, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 }

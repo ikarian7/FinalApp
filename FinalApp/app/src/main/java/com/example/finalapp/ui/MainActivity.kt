@@ -2,25 +2,34 @@ package com.example.finalapp.ui
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Spinner
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.finalapp.R
+import com.example.finalapp.model.DCOCharacter
 import kotlinx.android.synthetic.main.add_char_dialogue.*
 import kotlinx.android.synthetic.main.add_char_dialogue.view.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mainViewModel: ActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mainViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -70,14 +79,21 @@ class MainActivity : AppCompatActivity() {
             .setView(mDialogView)
             .setTitle("Add Character")
         //show dialog
+
+
+
         val  mAlertDialog = mBuilder.show()
+        val cartspinner: Spinner = mAlertDialog.findViewById(R.id.cartelspinner)
 
         mDialogView.dialogAddBtn.setOnClickListener{
 
-            TVcarteltext.text = cartelspinner.selectedItem.toString()
+            /*TVcarteltext.text = cartelspinner.selectedItem.toString()
             TVprofessiontext.text = professionspinner.selectedItem.toString()
-            TVquirktext.text = quirkspinner.selectedItem.toString()
+            TVquirktext.text = quirkspinner.selectedItem.toString()*/
 
+            Log.d("scott is een poepje", cartspinner.selectedItem.toString() )
+            val newCharacter: DCOCharacter = DCOCharacter(1,  false, "Iris", cartspinner.selectedItem.toString(), "Brawler", "is lief")
+            mainViewModel.addDcoCharacter(newCharacter)
 
         }
         mDialogView.dialogCancelBtn.setOnClickListener {

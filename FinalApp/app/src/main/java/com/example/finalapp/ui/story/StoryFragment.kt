@@ -18,6 +18,6 @@ class StoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         storyViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_combat, container, false)
+        return inflater.inflate(R.layout.fragment_story, container, false)
     }
 }
