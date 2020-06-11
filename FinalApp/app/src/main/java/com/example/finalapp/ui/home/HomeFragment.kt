@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         })
 
         viewModel.currentCharaId.observe(viewLifecycleOwner, Observer { currentCharaId ->
-            viewModel.updateChara(currentCharaId)
+            viewModel.updateQuirk(currentCharaId)
         })
 
         Toast.makeText(viewModel.getApplication(), R.string.editedText, Toast.LENGTH_SHORT).show()

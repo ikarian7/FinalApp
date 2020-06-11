@@ -61,10 +61,10 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun updateChara(selectedCharacterId: Int) {
+    fun updateQuirk(currentCharacterID: Int) {
         mainScope.launch {
             withContext(Dispatchers.IO) {
-                dcoRepo.updateQuirk(selectedCharacterId, quirk.value!!)
+                dcoRepo.updateQuirk(currentCharacterID, quirk.value!!)
             }
         }
     }
