@@ -21,4 +21,6 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
             dcoRepo.insertCharacter(newCharacter)
         }
     }
+
+
 }

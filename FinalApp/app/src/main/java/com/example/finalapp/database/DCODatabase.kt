@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [DCOCharacter::class], version = 2, exportSchema = false)
+@Database(entities = [DCOCharacter::class], version = 3, exportSchema = false)
 abstract class DCODatabase : RoomDatabase() {
     abstract fun dcoCharacterDAO(): DCOCharacterDAO
 
@@ -29,7 +29,7 @@ abstract class DCODatabase : RoomDatabase() {
                                 super.onCreate(db)
                                 INSTANCE?.let { database ->
                                     CoroutineScope(Dispatchers.IO).launch {
-                                        database.dcoCharacterDAO().insertCharacter(DCOCharacter(1,  true, "Iris", "The circle", "Brawler", "is lief"))
+                                        database.dcoCharacterDAO().insertCharacter(DCOCharacter(true, "Iris", "The circle", "Brawler", "is lief"))
                                     }
                                 }
                             }

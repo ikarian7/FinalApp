@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -78,23 +79,26 @@ class MainActivity : AppCompatActivity() {
         val mBuilder = AlertDialog.Builder(this)
             .setView(mDialogView)
             .setTitle("Add Character")
+
         //show dialog
-
-
-
         val  mAlertDialog = mBuilder.show()
+
+        val nameInputField = mAlertDialog.findViewById<EditText>(R.id.etName)
         val cartspinner: Spinner = mAlertDialog.findViewById(R.id.cartelspinner)
+        val profspinner: Spinner = mAlertDialog.findViewById(R.id.professionspinner)
+        val quispinner: Spinner = mAlertDialog.findViewById(R.id.quirkspinner)
 
         mDialogView.dialogAddBtn.setOnClickListener{
 
-            /*TVcarteltext.text = cartelspinner.selectedItem.toString()
-            TVprofessiontext.text = professionspinner.selectedItem.toString()
-            TVquirktext.text = quirkspinner.selectedItem.toString()*/
+            Log.d("spinnertest", cartspinner.selectedItem.toString())
 
-            Log.d("scott is een poepje", cartspinner.selectedItem.toString() )
-            val newCharacter: DCOCharacter = DCOCharacter(1,  false, "Iris", cartspinner.selectedItem.toString(), "Brawler", "is lief")
+
+            val newCharacter: DCOCharacter = DCOCharacter(false, nameInputField.text.toString(), cartspinner.selectedItem.toString(),
+                profspinner.selectedItem.toString(),
+                quispinner.selectedItem.toString())
             mainViewModel.addDcoCharacter(newCharacter)
 
+            mAlertDialog.dismiss()
         }
         mDialogView.dialogCancelBtn.setOnClickListener {
             //dismiss dialog

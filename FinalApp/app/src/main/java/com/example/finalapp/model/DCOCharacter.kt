@@ -6,10 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "dcoCharacterTable")
 data class DCOCharacter (
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    var id: Long? = null,
-
     @ColumnInfo(name = "active")
     var active: Boolean,
 
@@ -23,5 +19,9 @@ data class DCOCharacter (
     var profession: String,
 
     @ColumnInfo(name = "quirk")
-    var quirk: String
+    var quirk: String,
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long? = null
 )

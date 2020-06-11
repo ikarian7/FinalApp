@@ -9,6 +9,10 @@
     <string name="Cartel">Cartel:</string>
     <string name="profession">Profession:</string>
     <string name="quirk">Quirk:</string>
+    <string name="name_placeholder">Name</string>
+    <string name="CharacterName">name</string>
+    <string name="CartelName">cartelname</string>
+    <string name="ProfName">profname</string>
     <string-array name="Cartelnames">
         <item>The Circle</item>
         <item>The Family</item>
