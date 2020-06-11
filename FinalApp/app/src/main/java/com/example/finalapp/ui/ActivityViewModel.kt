@@ -9,11 +9,13 @@ import com.example.finalapp.model.DCOCharacter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     private val stCharacterID = 1;
 
+    private val mainScope = CoroutineScope(Dispatchers.Main)
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
     private val dcoRepo = DCOCharacterRepository(application.applicationContext)
@@ -25,6 +27,14 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
             dcoRepo.getDCOCharacter(stCharacterID)
         } else {
             dcoRepo.getDCOCharacter(currentCharaId)
+        }
+    }
+
+    var quirk = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getQuirk(stCharacterID)
+        } else {
+            dcoRepo.getQuirk(currentCharaId)
         }
     }
 
@@ -48,6 +58,14 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
     fun deleteChara(dcoCharacter: DCOCharacter) {
         ioScope.launch {
             dcoRepo.deleteChara(dcoCharacter)
+        }
+    }
+
+    fun updateChara(selectedCharacterId: Int) {
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                dcoRepo.updateQuirk(selectedCharacterId, quirk.value!!)
+            }
         }
     }
 }

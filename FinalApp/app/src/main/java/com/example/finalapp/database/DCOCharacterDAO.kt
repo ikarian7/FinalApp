@@ -29,4 +29,10 @@ interface DCOCharacterDAO {
 
     @Delete
     suspend fun deleteChara(dcoCharacter: DCOCharacter)
+
+    @Query("UPDATE dcoCharacterTable SET quirk = :quirk WHERE id = :currentDcoCharacter")
+    suspend fun updateQuirk(currentDcoCharacter: Int, quirk: String)
+
+    @Query("SELECT quirk FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getQuirk(currentDcoCharacter: Int): LiveData<String>
 }

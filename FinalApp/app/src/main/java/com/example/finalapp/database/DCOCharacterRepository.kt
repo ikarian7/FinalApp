@@ -41,4 +41,13 @@ class DCOCharacterRepository(context: Context) {
     suspend fun deleteChara(dcoCharacter: DCOCharacter) {
         dcoCharacterDAO.deleteChara(dcoCharacter)
     }
+
+    suspend fun updateQuirk(dcoCharacter: Int, quirk: String){
+        dcoCharacterDAO.updateQuirk(dcoCharacter, quirk)
+    }
+
+    fun getQuirk(currentDCOCharacter: Int): LiveData<String> {
+        return dcoCharacterDAO.getQuirk(currentDCOCharacter)
+    }
+
 }

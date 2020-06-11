@@ -25,7 +25,7 @@ class CharacterListFragment : Fragment() {
     private val dcoCharacters = arrayListOf<DCOCharacter>()
     private val characterAdapter = CharacterAdapter(dcoCharacters, { dcoCharacter -> onCharacterClick(dcoCharacter) }, { dcoCharacter -> onDeleteClick(dcoCharacter)})
     private lateinit var viewModel: ActivityViewModel
-    
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
