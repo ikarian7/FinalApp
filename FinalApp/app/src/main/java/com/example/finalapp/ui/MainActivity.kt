@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -24,6 +25,7 @@ import kotlinx.android.synthetic.main.add_char_dialogue.view.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainViewModel: ActivityViewModel
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(setOf(
@@ -46,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
         navView.itemIconTintList = null
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -61,14 +65,9 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         if (id == R.id.action_two) {
-            Toast.makeText(this, "Select character", Toast.LENGTH_LONG).show()
+            startCharactersList()
             return true
         }
-        if (id == R.id.action_three) {
-            Toast.makeText(this, "Delete character", Toast.LENGTH_LONG).show()
-            return true
-        }
-
         return super.onOptionsItemSelected(item)
 
     }
@@ -104,5 +103,9 @@ class MainActivity : AppCompatActivity() {
             //dismiss dialog
             mAlertDialog.dismiss()
         }
+    }
+    //Navigation to the characters fragment
+    private fun startCharactersList() {
+        navController.navigate(R.id.navigation_allcharacters)
     }
 }

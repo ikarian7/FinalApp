@@ -29,4 +29,10 @@
         android:label="@string/title_story"
         tools:layout="@layout/fragment_story"
         />
+
+    <fragment
+        android:id="@+id/navigation_allcharacters"
+        android:name="com.example.finalapp.ui.CharacterListFragment"
+        android:label="All Characters"
+        tools:layout="@layout/characterlist"/>
 </navigation>

@@ -6,8 +6,5 @@
         android:title="New Character"/>
     <item
         android:id="@+id/action_two"
-        android:title="Select Character"/>
-    <item
-        android:id="@+id/action_three"
-        android:title="Delete Character"/>
+        android:title="Select/Delete Character"/>
 </menu>
