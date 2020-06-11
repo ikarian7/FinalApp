@@ -3,6 +3,7 @@ package com.example.finalapp.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.example.finalapp.database.DCOCharacterRepository
 import com.example.finalapp.model.DCOCharacter
 import kotlinx.coroutines.CoroutineScope
@@ -16,7 +17,21 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
     private val dcoRepo = DCOCharacterRepository(application.applicationContext)
+    var currentCharaId = dcoRepo.getSelectedChara()
     val dcoCharacters: LiveData<List<DCOCharacter>> = dcoRepo.getAllCharacters()
+
+    var currentChara = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getDCOCharacter(stCharacterID)
+        } else {
+            dcoRepo.getDCOCharacter(currentCharaId)
+        }
+    }
+
+    fun getCharaByID(id: Int): LiveData<DCOCharacter?> {
+        return dcoRepo.getDCOCharacter(id)
+    }
+
 
     fun addDcoCharacter(newCharacter: DCOCharacter){
         ioScope.launch {
@@ -24,5 +39,15 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun changeSelectedChara(chosenCharacterID: Int, currentCharacterID: Int) {
+        ioScope.launch {
+            dcoRepo.changeSelectedChara(chosenCharacterID, currentCharacterID)
+        }
+    }
 
+    fun deleteChara(dcoCharacter: DCOCharacter) {
+        ioScope.launch {
+            dcoRepo.deleteChara(dcoCharacter)
+        }
+    }
 }

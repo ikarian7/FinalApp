@@ -13,6 +13,8 @@
     <string name="CharacterName">name</string>
     <string name="CartelName">cartelname</string>
     <string name="ProfName">profname</string>
+    <string name="selected">Already selected</string>
+    <string name="error">This does not work!</string>
     <string-array name="Cartelnames">
         <item>The Circle</item>
         <item>The Family</item>

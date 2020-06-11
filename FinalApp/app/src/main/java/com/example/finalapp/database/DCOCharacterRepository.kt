@@ -2,6 +2,7 @@ package com.example.finalapp.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.room.Transaction
 import com.example.finalapp.model.DCOCharacter
 
 class DCOCharacterRepository(context: Context) {
@@ -16,7 +17,28 @@ class DCOCharacterRepository(context: Context) {
         dcoCharacterDAO.insertCharacter(dcoCharacter)
     }
 
+
+    fun getDCOCharacter(currentDCOCharacter: Int): LiveData<DCOCharacter?> {
+        return dcoCharacterDAO.getDCOCharacter(currentDCOCharacter)
+    }
+
+
+    fun getSelectedChara(): LiveData<Int> {
+        return dcoCharacterDAO.getSelectedChara()
+    }
+
+    @Transaction
+    suspend fun changeSelectedChara(chosenCharacterID: Int, currentCharacterID: Int) {
+        dcoCharacterDAO.makeActive(chosenCharacterID)
+        dcoCharacterDAO.makeInactive(currentCharacterID)
+    }
+
     fun getAllCharacters(): LiveData<List<DCOCharacter>> {
         return dcoCharacterDAO.getAllCharacters()
+    }
+
+    //Deletion of the character
+    suspend fun deleteChara(dcoCharacter: DCOCharacter) {
+        dcoCharacterDAO.deleteChara(dcoCharacter)
     }
 }
