@@ -1,23 +1,49 @@
 package com.example.finalapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.finalapp.R
 import com.example.finalapp.ui.ActivityViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.item.*
 
 class HomeFragment : Fragment() {
-    private lateinit var homeViewModel: ActivityViewModel
+    private lateinit var viewModel: ActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
         return inflater.inflate(R.layout.fragment_home, container, false)
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initViewModel()
+    }
+
+    private fun initViewModel() {
+        viewModel.currentChara.observe(viewLifecycleOwner, Observer { currentChara ->
+            if (currentChara != null) {
+                tvCharaName.text = currentChara.name
+                Log.d("name textview", tvCharaName.text as String)
+                Log.d("name database", currentChara.name)
+                tvCartelText.text = currentChara.cartel
+                tvProfessionText.text = currentChara.profession
+                etQuirkText.text = currentChara.quirk
+            }
+        })
+
     }
 }
