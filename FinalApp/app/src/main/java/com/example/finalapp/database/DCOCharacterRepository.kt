@@ -15,4 +15,8 @@ class DCOCharacterRepository(context: Context) {
     suspend fun insertCharacter(dcoCharacter: DCOCharacter){
         dcoCharacterDAO.insertCharacter(dcoCharacter)
     }
+
+    fun getAllCharacters(): LiveData<List<DCOCharacter>> {
+        return dcoCharacterDAO.getAllCharacters()
+    }
 }

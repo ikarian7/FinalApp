@@ -2,6 +2,7 @@ package com.example.finalapp.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import com.example.finalapp.database.DCOCharacterRepository
 import com.example.finalapp.model.DCOCharacter
 import kotlinx.coroutines.CoroutineScope
@@ -15,6 +16,7 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
     private val dcoRepo = DCOCharacterRepository(application.applicationContext)
+    val dcoCharacters: LiveData<List<DCOCharacter>> = dcoRepo.getAllCharacters()
 
     fun addDcoCharacter(newCharacter: DCOCharacter){
         ioScope.launch {
