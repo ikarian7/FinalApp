@@ -124,4 +124,7 @@
     </string-array>
     <string name="CircleInconPlaces">Little Taonan\nMerchant district\nNoble district</string>
     <string name="FamilyInconPlaces">Little Taona\nThe dock\nThe slums</string>
+    <string name="splashtitle">DCO\nCharacter App</string>
+    <string name="maker">Scott Marchant - 2020</string>
+    <string name="contdesc">DCO picture</string>
 </resources>
