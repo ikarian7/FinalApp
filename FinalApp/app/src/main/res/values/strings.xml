@@ -127,4 +127,24 @@
     <string name="splashtitle">DCO\nCharacter App</string>
     <string name="maker">Scott Marchant - 2020</string>
     <string name="contdesc">DCO picture</string>
+    <string name="CartelInfo">"Cartel"</string>
+
+    <string name="CircleInfo">Your cartel is composed of refugees from the collapse of the Vladov
+Empire, far across the sea, and the allies they have made since arriving in
+New Dunhaven. Nearly every member of the cartel has spent some time in
+the city’s notorious prison, the Castle, as a result of an unjust decree by the
+Crown. The members of the Circle are tough, dangerous people with a reputation for
+violence, valued on crews as muscle and protection. The Circle uses intimidation to
+get its way, specializing in extortion, protection rackets, assassination, and coercion.</string>
+
+    <string name="FamilyInfo">Your cartel is the oldest and largest criminal organization in the
+city and the cornerstone of organized crime in New Dunhaven. The
+Family controls the largest swath of contiguous turf in the city, and
+oversees all crime in and around the city’s canals. Though involved in
+nearly every possible criminal pursuit, members of the Family portray themselves as
+legitimate businesspeople or local politicians, responsible for making sure everything
+keeps running smoothly for the common people who live in their territory. The
+Family is also the wealthiest cartel, and it often flaunts its riches to achieve its goals.</string>
+    <string name="Profskills">Profession skills</string>
+    <string name="QuirkInfo">Quirk</string>
 </resources>
