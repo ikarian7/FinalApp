@@ -44,6 +44,7 @@ class HomeFragment : Fragment() {
                 tvCartelText.text = currentChara.cartel
                 tvProfessionText.text = currentChara.profession
                 etQuirkText.setText(currentChara.quirk)
+                tvPlacesIncon.text = currentChara.inconPlaces
             }
         })
 

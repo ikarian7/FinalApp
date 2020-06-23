@@ -22,6 +22,9 @@ data class DCOCharacter (
     @ColumnInfo(name = "quirk")
     var quirk: String,
 
+    @ColumnInfo(name = "inconplaces")
+    var inconPlaces: String,
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Long? = null

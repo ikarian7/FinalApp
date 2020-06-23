@@ -29,7 +29,7 @@ abstract class DCODatabase : RoomDatabase() {
                                 super.onCreate(db)
                                 INSTANCE?.let { database ->
                                     CoroutineScope(Dispatchers.IO).launch {
-                                        database.dcoCharacterDAO().insertCharacter(DCOCharacter(true, "Iris", "The circle", "Brawler", "is lief"))
+                                        database.dcoCharacterDAO().insertCharacter(DCOCharacter(true, "Iris", "The circle", "Brawler", "is lief", "blabla"))
                                     }
                                 }
                             }

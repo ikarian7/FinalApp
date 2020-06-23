@@ -91,11 +91,18 @@ class MainActivity : AppCompatActivity() {
         mDialogView.dialogAddBtn.setOnClickListener{
 
             Log.d("spinnertest", cartspinner.selectedItem.toString())
-
-
+            var placesIncon ="blabla"
+            if(cartspinner.selectedItem.toString() == "The Circle"){
+                placesIncon = this.getString(R.string.CircleInconPlaces)
+            }
+            else{
+                placesIncon = this.getString(R.string.FamilyInconPlaces)
+            }
+            Log.d("placeIncon", placesIncon)
             val newCharacter: DCOCharacter = DCOCharacter(false, nameInputField.text.toString(), cartspinner.selectedItem.toString(),
                 profspinner.selectedItem.toString(),
-                quispinner.selectedItem.toString())
+                quispinner.selectedItem.toString(),
+                placesIncon)
             mainViewModel.addDcoCharacter(newCharacter)
 
             mAlertDialog.dismiss()
