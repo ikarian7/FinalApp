@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
         Toast.makeText(viewModel.getApplication(), R.string.editedText, Toast.LENGTH_SHORT).show()
         viewModel.currentChara.observe(viewLifecycleOwner, Observer {currentChara ->
             if(currentChara != null) {
-                currentChara.quirk = etQuirkText.text.toString()
+                viewModel.quirk = MutableLiveData(etQuirkText.text.toString())
             }
         })
 
