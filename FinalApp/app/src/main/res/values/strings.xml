@@ -147,4 +147,40 @@ keeps running smoothly for the common people who live in their territory. The
 Family is also the wealthiest cartel, and it often flaunts its riches to achieve its goals.</string>
     <string name="Profskills">Profession skills</string>
     <string name="QuirkInfo">Quirk</string>
+    <string name="AlchemistSkills">Use an Alchemical Object: 90%\n
+Appraise Something: 80%\n
+Conceal an Object: 80%\n
+Gossip with Merchants: 80%\n
+Navigate Bureaucracy: 80%\n
+Convince Someone: 65%\n
+Outdrink Someone: 65%\n
+Run Like Hell: 65%\n
+Size Someone Up: 65%\n
+Throw Something: 65%\n
+Anything Else: 50%</string>
+    <string name="AssassinSkills">Sneak Around: 90%\n
+Brawl with Someone: 80%\n
+Case the Joint: 80%\n
+Climb, Jump, and Tumble: 80%\n
+Create a Disguise: 80%\n
+Shoot Someone: 80%\n
+Stab Someone: 80%\n
+Tail Someone: 80%\n
+Conceal an Object: 65%\n
+Goad Someone: 65%\n
+Gossip with Commoners: 65%\n
+Lie to Someone: 65%\n
+Locate Someone: 65%\n
+Run Like Hell: 65%\n
+Anything Else: 50%</string>
+    <string name="ToanaQuirk">One of the Locals\n
+You are not conspicuous in Little Taona,
+even if your cartel says that you normally
+would be.</string>
+    <string name="AnimalQuirk">Beast Language\n
+Choose a particular species of animal. You
+can understand and be understood by
+animals of that type, and you can use skills
+to interact with them verbally just as you
+would with people</string>
 </resources>

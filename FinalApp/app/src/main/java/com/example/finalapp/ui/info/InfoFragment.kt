@@ -39,6 +39,18 @@ class InfoFragment : Fragment() {
                 else{
                     cartelinfo = this.getString(R.string.FamilyInfo)
                 }
+                if(currentChara.profession == "Alchemist"){
+                    tvProfSkills.text = this.getString(R.string.AlchemistSkills)
+                }
+                else{
+                    tvProfSkills.text = this.getString(R.string.AssassinSkills)
+                }
+                if(currentChara.quirk == "A Home in Little Taona"){
+                    tvQuirkInfo.text = this.getString(R.string.ToanaQuirk)
+                }
+                else{
+                    tvQuirkInfo.text = this.getString(R.string.AnimalQuirk)
+                }
              tvCartelInfo.text = cartelinfo
             }
             Log.d("cartelinfo", cartelinfo)
