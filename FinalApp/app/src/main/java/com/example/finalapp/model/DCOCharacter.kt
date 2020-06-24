@@ -37,6 +37,9 @@ data class DCOCharacter (
     @ColumnInfo(name = "background")
     var background: String,
 
+    @ColumnInfo(name = "luck")
+    var luck: Int,
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Long? = null

@@ -38,6 +38,14 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    var luck = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getLuck(stCharacterID)
+        } else {
+            dcoRepo.getLuck(currentCharaId)
+        }
+    }
+
     var conflicts = Transformations.switchMap(currentCharaId) {currentCharaId ->
         if(currentCharaId == null) {
             dcoRepo.getConflicts(stCharacterID)
@@ -98,6 +106,14 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         mainScope.launch {
             withContext(Dispatchers.IO) {
                 dcoRepo.updateQuirk(currentCharacterID, quirk.value!!)
+            }
+        }
+    }
+
+    fun updateLuck(currentCharacterID: Int) {
+        mainScope.launch {
+            withContext(Dispatchers.IO){
+                dcoRepo.updateLuck(currentCharacterID, luck.value!!)
             }
         }
     }

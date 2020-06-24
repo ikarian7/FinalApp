@@ -75,5 +75,12 @@ interface DCOCharacterDAO {
     @Query("SELECT background FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
     fun getBackground(currentDcoCharacter: Int): LiveData<String>
 
+    //LUCK
+    //UPDATE
+    @Query("UPDATE dcoCharacterTable SET luck = :luck WHERE id = :currentDcoCharacter")
+    suspend fun updateLuck(currentDcoCharacter: Int, luck: Int)
 
+    //GET
+    @Query("SELECT luck FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getLuck(currentDcoCharacter: Int): LiveData<Int>
 }

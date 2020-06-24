@@ -92,5 +92,14 @@ class DCOCharacterRepository(context: Context) {
         return dcoCharacterDAO.getBackground(currentDCOCharacter)
     }
 
+    //UPDATE LUCK
+    suspend fun updateLuck(dcoCharacter: Int, luck: Int) {
+        dcoCharacterDAO.updateLuck(dcoCharacter, luck)
+    }
+
+    //GET LUCK
+    fun getLuck(currentDCOCharacter: Int): LiveData<Int> {
+        return dcoCharacterDAO.getLuck(currentDCOCharacter)
+    }
 
 }

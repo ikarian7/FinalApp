@@ -189,5 +189,10 @@ would with people</string>
     <string name="BackgroundTitle">Background</string>
     <string name="BackgroundHint">Background</string>
     <string name="StoryRewardHint">Story reward</string>
-    <string name="Luck">Luck:</string>
+    <string name="Luck">Luck: %1s</string>
+    <string name="Luckamount">0</string>
+    <string name="ibMin">min</string>
+    <string name="ibPlus">Plus</string>
+    <string name="Wounds">Wounds:</string>
+    <string name="weapon_placeholder">weapon</string>
 </resources>
