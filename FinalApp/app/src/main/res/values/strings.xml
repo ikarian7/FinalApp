@@ -16,7 +16,7 @@
     <string name="selected">Already selected</string>
     <string name="error">This does not work!</string>
     <string name="Charactername">Name: </string>
-    <string name="editedText">Edited</string>
+    <string name="editedText">Saved</string>
     <string name="Incon">Inconspicuous</string>
     <string name="inconPlace">"Places where inconspicuous: "</string>
     <string-array name="Cartelnames">
@@ -189,4 +189,5 @@ would with people</string>
     <string name="BackgroundTitle">Background</string>
     <string name="BackgroundHint">Background</string>
     <string name="StoryRewardHint">Story reward</string>
+    <string name="Luck">Luck:</string>
 </resources>

@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [DCOCharacter::class], version = 3, exportSchema = false)
+@Database(entities = [DCOCharacter::class], version = 4, exportSchema = false)
 abstract class DCODatabase : RoomDatabase() {
     abstract fun dcoCharacterDAO(): DCOCharacterDAO
 

@@ -42,26 +42,52 @@ class DCOCharacterRepository(context: Context) {
         dcoCharacterDAO.deleteChara(dcoCharacter)
     }
 
+    //UPDATE QUIRK
     suspend fun updateQuirk(dcoCharacter: Int, quirk: String){
         dcoCharacterDAO.updateQuirk(dcoCharacter, quirk)
     }
 
+    //GET QUIRK
     fun getQuirk(currentDCOCharacter: Int): LiveData<String> {
         return dcoCharacterDAO.getQuirk(currentDCOCharacter)
     }
 
+    //UPDATE CONFLICTS
+    suspend fun updateConflicts(dcoCharacter: Int, conflicts: Int){
+        dcoCharacterDAO.updateConflicts(dcoCharacter, conflicts)
+    }
+
+    //GET CONFLICTS
     fun getConflicts(currentDCOCharacter: Int): LiveData<Int> {
         return dcoCharacterDAO.getConflict(currentDCOCharacter)
     }
 
+    //UPDATE STORY
+    suspend fun updateStory(dcoCharacter: Int, stories: String){
+        dcoCharacterDAO.updateStories(dcoCharacter, stories)
+    }
+
+    //GET STORY
     fun getStories(currentDCOCharacter: Int): LiveData<String> {
         return dcoCharacterDAO.getStory(currentDCOCharacter)
     }
 
+    //UPDATE REWARDS
+    suspend fun updateRewards(dcoCharacter: Int, rewards: String){
+        dcoCharacterDAO.updateRewards(dcoCharacter, rewards)
+    }
+
+    //GET REWARDS
     fun getRewards(currentDCOCharacter: Int): LiveData<String>{
         return dcoCharacterDAO.getRewards(currentDCOCharacter)
     }
 
+    //UPDATE BACKGROUND
+    suspend fun updateBackground(dcoCharacter: Int, backGround: String){
+        dcoCharacterDAO.updateBackground(dcoCharacter, backGround)
+    }
+
+    //GET BACKGROUND
     fun getBackground(currentDCOCharacter: Int): LiveData<String> {
         return dcoCharacterDAO.getBackground(currentDCOCharacter)
     }

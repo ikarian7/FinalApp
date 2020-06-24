@@ -101,4 +101,15 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
             }
         }
     }
+
+    fun updateStory(currentCharacterID: Int){
+        mainScope.launch {
+            withContext(Dispatchers.IO){
+                dcoRepo.updateBackground(currentCharacterID, backGround.value!!)
+                dcoRepo.updateStory(currentCharacterID, stories.value!!)
+                dcoRepo.updateRewards(currentCharacterID, rewards.value!!)
+                dcoRepo.updateConflicts(currentCharacterID, conflicts.value!!)
+            }
+        }
+    }
 }

@@ -102,7 +102,11 @@ class MainActivity : AppCompatActivity() {
             val newCharacter: DCOCharacter = DCOCharacter(false, nameInputField.text.toString(), cartspinner.selectedItem.toString(),
                 profspinner.selectedItem.toString(),
                 quispinner.selectedItem.toString(),
-                placesIncon)
+                placesIncon,
+            0,
+            "",
+            "",
+            "")
             mainViewModel.addDcoCharacter(newCharacter)
 
             mAlertDialog.dismiss()
