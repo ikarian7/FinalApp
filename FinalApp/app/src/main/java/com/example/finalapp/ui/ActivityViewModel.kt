@@ -38,6 +38,39 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    var conflicts = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getConflicts(stCharacterID)
+        } else {
+            dcoRepo.getConflicts(currentCharaId)
+        }
+    }
+
+    var stories = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getStories(stCharacterID)
+        } else {
+            dcoRepo.getStories(currentCharaId)
+        }
+    }
+
+    var rewards = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getRewards(stCharacterID)
+        } else {
+            dcoRepo.getRewards(currentCharaId)
+        }
+    }
+
+    var backGround = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getBackground(stCharacterID)
+        } else {
+            dcoRepo.getBackground(currentCharaId)
+        }
+    }
+
+
     fun getCharaByID(id: Int): LiveData<DCOCharacter?> {
         return dcoRepo.getDCOCharacter(id)
     }

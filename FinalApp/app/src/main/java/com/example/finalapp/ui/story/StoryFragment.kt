@@ -20,4 +20,13 @@ class StoryFragment : Fragment() {
         storyViewModel = ViewModelProvider(this).get(ActivityViewModel::class.java)
         return inflater.inflate(R.layout.fragment_story, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    private fun getStory(){
+
+    }
 }
