@@ -56,4 +56,9 @@ class InfoFragment : Fragment() {
             Log.d("cartelinfo", cartelinfo)
         })
     }
+
+    override fun onPause() {
+        super.onPause()
+
+    }
 }

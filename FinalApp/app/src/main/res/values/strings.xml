@@ -183,4 +183,10 @@ can understand and be understood by
 animals of that type, and you can use skills
 to interact with them verbally just as you
 would with people</string>
+    <string name="storytext">Story</string>
+    <string name="StoryConflict">Story conflict</string>
+    <string name="Rewards">Story reward</string>
+    <string name="BackgroundTitle">Background</string>
+    <string name="BackgroundHint">Background</string>
+    <string name="StoryRewardHint">Story reward</string>
 </resources>

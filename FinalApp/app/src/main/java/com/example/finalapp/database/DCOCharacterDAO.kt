@@ -35,4 +35,18 @@ interface DCOCharacterDAO {
 
     @Query("SELECT quirk FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
     fun getQuirk(currentDcoCharacter: Int): LiveData<String>
+
+    @Query("SELECT conflictBar FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getConflict(currentDcoCharacter: Int): LiveData<Int>
+
+    @Query("SELECT story FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getStory(currentDcoCharacter: Int): LiveData<String>
+
+    @Query("SELECT rewards FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getRewards(currentDcoCharacter: Int): LiveData<String>
+
+    @Query("SELECT background FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getBackground(currentDcoCharacter: Int): LiveData<String>
+
+
 }

@@ -50,4 +50,11 @@ class DCOCharacterRepository(context: Context) {
         return dcoCharacterDAO.getQuirk(currentDCOCharacter)
     }
 
+    @Transaction
+   suspend fun getStorypage(currentDCOCharacter: Int): Pair<Pair<Int, String>, Pair<String, String>>{
+        return Pair(
+            Pair(dcoCharacterDAO.getConflict(currentDCOCharacter), dcoCharacterDAO.getStory(currentDCOCharacter)),
+            Pair(dcoCharacterDAO.getRewards(currentDCOCharacter), dcoCharacterDAO.getBackground(currentDCOCharacter))
+        )
+    }
 }

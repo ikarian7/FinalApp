@@ -25,6 +25,18 @@ data class DCOCharacter (
     @ColumnInfo(name = "inconplaces")
     var inconPlaces: String,
 
+    @ColumnInfo(name = "conflictBar")
+    var conflictbar: Int,
+
+    @ColumnInfo(name = "story")
+    var story: String,
+
+    @ColumnInfo(name = "rewards")
+    var rewards: String,
+
+    @ColumnInfo(name = "background")
+    var background: String,
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Long? = null
