@@ -40,6 +40,9 @@ data class DCOCharacter (
     @ColumnInfo(name = "luck")
     var luck: Int,
 
+    @ColumnInfo(name = "wounds")
+    var wounds: Int,
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Long? = null

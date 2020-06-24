@@ -96,7 +96,7 @@
             android:orientation="vertical">
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/woundBar"
                 style="@style/RatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
@@ -124,5 +124,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/combatDivider" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        style="@style/CustomFAB"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

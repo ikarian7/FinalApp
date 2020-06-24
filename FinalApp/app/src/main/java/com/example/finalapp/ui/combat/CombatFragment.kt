@@ -13,9 +13,18 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.finalapp.model.WeaponItem
+import com.example.finalapp.model.WeaponsAdapter
 
 class CombatFragment : Fragment() {
     private lateinit var combatViewModel: ActivityViewModel
+
+    private val weapons = arrayListOf<WeaponItem>()
+    private val weaponsAdapter = WeaponsAdapter(weapons)
+
     var maxluck = "100"
 
     override fun onCreateView(
@@ -31,18 +40,38 @@ class CombatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initViews()
         initViewModel()
     }
+
+    fun initViews() {
+        rvWeapons.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        rvWeapons.adapter = weaponsAdapter
+        rvWeapons.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+    }
+
     fun initViewModel(){
+        combatViewModel.weapons.observe(viewLifecycleOwner, Observer { weapons ->
+            this.weapons.clear()
+            this.weapons.addAll(weapons)
+            weaponsAdapter.notifyDataSetChanged()
+        })
+
         combatViewModel.currentChara.observe(viewLifecycleOwner, Observer { currentChara ->
             if(currentChara != null) {
                 tvLuck.text = getString(R.string.Luck, currentChara.luck.toString())
+                woundBar.rating = currentChara.wounds.toFloat()
+                Log.d("wounds", woundBar.rating.toString())
+                Log.d("wounds current", currentChara.wounds.toString())
             } else {
                 tvLuck.text = getString(R.string.Luck, maxluck)
+                woundBar.rating = 0.0f
             }
         })
         ibMin.setOnClickListener{adjustHealth("min")}
         ibPlus.setOnClickListener{adjustHealth("plus")}
+        //Log.d("wounds when enter", woundBar.rating.toString())
     }
 
     fun adjustHealth(type: String){
@@ -68,11 +97,14 @@ class CombatFragment : Fragment() {
                     var currentHealth = tvLuck.text.toString().replace("Luck: ", "")
                     var luckGet = currentHealth.toInt()
                     combatViewModel.luck = MutableLiveData(luckGet)
+                    combatViewModel.wounds = MutableLiveData(woundBar.rating.toInt())
+                   // Log.d("wounds", woundBar.rating.toString())
                 }
             })
 
             combatViewModel.currentCharaId.observe(viewLifecycleOwner, Observer { currentCharaId ->
-                combatViewModel.updateLuck(currentCharaId)
+                combatViewModel.updateAll(currentCharaId)
+
             })
 
             Toast.makeText(combatViewModel.getApplication(), R.string.editedText, Toast.LENGTH_SHORT).show()

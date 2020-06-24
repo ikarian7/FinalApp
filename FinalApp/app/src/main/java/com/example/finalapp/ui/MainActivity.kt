@@ -107,7 +107,8 @@ class MainActivity : AppCompatActivity() {
             "",
             "",
             "",
-            100)
+            100,
+            0)
             mainViewModel.addDcoCharacter(newCharacter)
 
             mAlertDialog.dismiss()

@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.finalapp.model.DCOCharacter
+import com.example.finalapp.model.WeaponItem
 
 @Dao
 interface DCOCharacterDAO {
@@ -83,4 +84,19 @@ interface DCOCharacterDAO {
     //GET
     @Query("SELECT luck FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
     fun getLuck(currentDcoCharacter: Int): LiveData<Int>
+
+    //WOUNDS
+    //UPDATE
+    @Query("UPDATE dcoCharacterTable SET wounds = :wounds WHERE id = :currentDcoCharacter")
+    suspend fun updateWounds(currentDcoCharacter: Int, wounds: Int)
+
+    //GET
+    @Query ("SELECT wounds FROM dcoCharacterTable WHERE id = :currentDcoCharacter")
+    fun getWounds(currentDcoCharacter: Int): LiveData<Int>
+
+    @Insert
+    suspend fun insertWeapon(weaponItem: WeaponItem)
+
+    @Query("SELECT * FROM weaponItemTable WHERE characterID = :currentDcoCharacter")
+    fun getAllWeapons(currentDcoCharacter: Int): LiveData<List<WeaponItem>>
 }

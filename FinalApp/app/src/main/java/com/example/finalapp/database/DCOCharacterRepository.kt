@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.Transaction
 import com.example.finalapp.model.DCOCharacter
+import com.example.finalapp.model.WeaponItem
 
 class DCOCharacterRepository(context: Context) {
     private val dcoCharacterDAO: DCOCharacterDAO
@@ -102,4 +103,20 @@ class DCOCharacterRepository(context: Context) {
         return dcoCharacterDAO.getLuck(currentDCOCharacter)
     }
 
+    //UPDATE WOUNDS
+    suspend fun updateWounds(dcoCharacter: Int, wounds: Int){
+        dcoCharacterDAO.updateWounds(dcoCharacter, wounds)
+    }
+
+    fun getWounds(currentDcoCharacter: Int): LiveData<Int>{
+        return dcoCharacterDAO.getWounds(currentDcoCharacter)
+    }
+
+    suspend fun insertWeapon(weaponItem: WeaponItem) {
+        dcoCharacterDAO.insertWeapon(weaponItem)
+    }
+
+    fun getWeapons(currentDCOCharacter: Int): LiveData<List<WeaponItem>> {
+        return dcoCharacterDAO.getAllWeapons(currentDCOCharacter)
+    }
 }

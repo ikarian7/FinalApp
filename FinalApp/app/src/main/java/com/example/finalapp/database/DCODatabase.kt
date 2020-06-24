@@ -6,11 +6,12 @@ import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.finalapp.model.DCOCharacter
+import com.example.finalapp.model.WeaponItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [DCOCharacter::class], version = 5, exportSchema = false)
+@Database(entities = [DCOCharacter::class, WeaponItem::class], version = 6, exportSchema = false)
 abstract class DCODatabase : RoomDatabase() {
     abstract fun dcoCharacterDAO(): DCOCharacterDAO
 
@@ -29,7 +30,8 @@ abstract class DCODatabase : RoomDatabase() {
                                 super.onCreate(db)
                                 INSTANCE?.let { database ->
                                     CoroutineScope(Dispatchers.IO).launch {
-                                        database.dcoCharacterDAO().insertCharacter(DCOCharacter(true, "Iris", "The Circle", "Assassin", "is lief", "blabla", 0, "bla", "bla", "bla", 100))
+                                        database.dcoCharacterDAO().insertCharacter(DCOCharacter(true, "Iris", "The Circle", "Assassin", "is lief", "blabla", 0, "bla", "bla", "bla", 100, 3, 1))
+                                        database.dcoCharacterDAO().insertWeapon(WeaponItem("Saskia",30, 1))
                                     }
                                 }
                             }

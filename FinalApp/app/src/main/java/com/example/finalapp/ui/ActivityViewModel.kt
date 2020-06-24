@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.finalapp.database.DCOCharacterRepository
 import com.example.finalapp.model.DCOCharacter
+import com.example.finalapp.model.WeaponItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
     private val ioScope = CoroutineScope(Dispatchers.IO)
 
     private val dcoRepo = DCOCharacterRepository(application.applicationContext)
+
     var currentCharaId = dcoRepo.getSelectedChara()
     val dcoCharacters: LiveData<List<DCOCharacter>> = dcoRepo.getAllCharacters()
 
@@ -78,6 +80,27 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    var wounds = Transformations.switchMap(currentCharaId){currentCharaId ->
+        if(currentCharaId == null){
+            dcoRepo.getWounds(stCharacterID)
+        } else {
+            dcoRepo.getWounds(currentCharaId)
+        }
+    }
+
+    var weapons = Transformations.switchMap(currentCharaId) {currentCharaId ->
+        if(currentCharaId == null) {
+            dcoRepo.getWeapons(stCharacterID)
+        } else {
+            dcoRepo.getWeapons(currentCharaId)
+        }
+    }
+
+    fun addWeapon(weapon: WeaponItem) {
+        ioScope.launch {
+            dcoRepo.insertWeapon(weapon)
+        }
+    }
 
     fun getCharaByID(id: Int): LiveData<DCOCharacter?> {
         return dcoRepo.getDCOCharacter(id)
@@ -110,9 +133,10 @@ class ActivityViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun updateLuck(currentCharacterID: Int) {
+    fun updateAll(currentCharacterID: Int) {
         mainScope.launch {
             withContext(Dispatchers.IO){
+                dcoRepo.updateWounds(currentCharacterID, wounds.value!!)
                 dcoRepo.updateLuck(currentCharacterID, luck.value!!)
             }
         }
