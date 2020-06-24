@@ -195,4 +195,7 @@ would with people</string>
     <string name="ibPlus">Plus</string>
     <string name="Wounds">Wounds:</string>
     <string name="weapon_placeholder">weapon</string>
+    <string name="title_add">Add</string>
+    <string name="toHit">to Hit</string>
+    <string name="itemname">Item name</string>
 </resources>

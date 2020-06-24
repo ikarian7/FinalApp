@@ -1,5 +1,6 @@
 package com.example.finalapp.ui.combat
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import com.example.finalapp.R
 import com.example.finalapp.ui.ActivityViewModel
 import kotlinx.android.synthetic.main.fragment_combat.*
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -49,6 +52,9 @@ class CombatFragment : Fragment() {
         rvWeapons.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvWeapons.adapter = weaponsAdapter
         rvWeapons.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        fab.setOnClickListener {
+            addWeapon()
+        }
     }
 
     fun initViewModel(){
@@ -114,5 +120,55 @@ class CombatFragment : Fragment() {
         super.onPause()
 
         saveAll()
+    }
+
+    private fun makeAlert(layout: Int, title: Int): Pair<AlertDialog, View> {
+        val dialogView = LayoutInflater.from(context).inflate(layout, null)
+        val newAlertBuilder = AlertDialog.Builder(context)
+            .setView(dialogView)
+            .setTitle(title)
+
+        return Pair(newAlertBuilder.show(), dialogView)
+    }
+
+    private fun addWeapon() {
+        val (alertDialog, alertView) = makeAlert(R.layout.add_weapon_dialogue, R.string.title_add)
+
+        val exitButton: Button = alertDialog.findViewById(R.id.btnItemCancel)
+        val addButton: Button = alertDialog.findViewById(R.id.btnItemAdd)
+
+
+        val nameInputField = alertDialog.findViewById<EditText>(R.id.etItemName)
+        val tohitInputField = alertDialog.findViewById<EditText>(R.id.etToHit)
+
+        exitButton.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        addButton.setOnClickListener {
+            if( nameInputField.text.toString() != "" &&
+                tohitInputField.text.toString() != ""
+            ) {
+                val name = nameInputField.text.toString()
+                val tohit = tohitInputField.text.toString().toInt()
+
+                combatViewModel.currentCharaId.observe(viewLifecycleOwner, Observer {currentCharaId ->
+                    if(currentCharaId != null) {
+                        val newWeapon = WeaponItem(name, tohit, currentCharaId.toLong())
+                        combatViewModel.addWeapon(newWeapon)
+                    } else {
+                        Toast.makeText(context, R.string.error, Toast.LENGTH_LONG).show()
+                    }
+                })
+
+
+                alertDialog.dismiss()
+            } else {
+                //TODO: make string value
+                Toast.makeText(context, "Vul iets in, alsjeblieft", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        alertDialog.show()
     }
 }
